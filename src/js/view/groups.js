@@ -40,7 +40,7 @@ export async function create() {
     let newName = browser.i18n.getMessage("defaultGroupName");
 	var group = {
 		id: newId,
-        name: newName,
+		name: `${newName} ${newId}`,
 		windowId: windowId,
 		containerId: 'firefox-default',
 		rect: {x: 0, y: 0, w: 0.2, h: 0.2},
