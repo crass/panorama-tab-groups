@@ -9,6 +9,7 @@ function convertBackup(tgData) {
 		windows: []
 	};
 
+	var newName = browser.i18n.getMessage("defaultGroupName");
 	for(var wi in tgData.windows) {
 
 		const tabviewGroup = JSON.parse(tgData.windows[wi].extData['tabview-group']);
@@ -25,7 +26,7 @@ function convertBackup(tgData) {
 		for(const gkey in tabviewGroup) {
 			data.windows[wi].groups.push({
 				id: tabviewGroup[gkey].id,
-				name: tabviewGroup[gkey].title,
+				name: tabviewGroup[gkey].title || `${newName} ${tabviewGroup[gkey].id}`,
 				rect: {x: curX, y: curY, w: gwidth, h: 0.5},
 			});
 			curX += deltaX;
